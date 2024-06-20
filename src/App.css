@@ -1,0 +1,155 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Raleway', Fallback, sans-serif;
+  font-size: 16px;
+  margin: 0 auto;
+  border-right: 1px solid lightgray;
+  border-left: 1px solid lightgray;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px 0px;
+}
+
+header {
+  padding: 15px;
+  background-color: #f4cfa8;
+  border-bottom: 1px solid lightgray;
+  text-align: center;
+  height: 85px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.main-content {
+  flex: 1;
+  padding: 100px 15px 150px; /* Adjusted padding to prevent overlap with fixed header and footer */
+  overflow-y: auto;
+}
+
+.filter-section {
+  padding: 10px 15px;
+  display: flex;
+  gap: 0.5rem;
+  border-top: 1px solid lightgray;
+  position: fixed;
+  bottom: 80px;
+  width: 100%;
+  background-color: white;
+  z-index: 10;
+}
+
+ul.list {
+  padding: 15px;
+  overflow-y: auto;
+}
+
+ul li.list-item {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  padding: 8px 0;
+  border-bottom: 1px solid lightgray;
+}
+
+ul li.list-item:last-child {
+  border-bottom-color: transparent;
+}
+
+ul li.list-item button {
+  font-size: 0.9rem;
+  padding: 3px 5px;
+}
+
+.list-item .todo-actions {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.todo-text {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2rem; /* Increase text size */
+}
+
+.list-item-label {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Add space between checkbox and text */
+}
+
+/* Remove hover effects that suggest clicking to mark as completed */
+.list-item-label:hover [data-list-item-text] {
+  text-decoration: none;
+  color: initial;
+}
+
+.list-item-label:hover,
+[data-list-item-checkbox]:hover {
+  cursor: default;
+}
+
+[data-list-item-checkbox]:checked~[data-list-item-text] {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+form.todo-form {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 100%;
+  align-items: center;
+  gap: 5px;
+  padding: 15px;
+  border-top: 1px solid lightgray;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 80px;
+  background-color: white;
+  z-index: 10;
+}
+
+input {
+  font-size: 1rem;
+  padding: 5px 15px;
+  height: 100%;
+}
+
+.empty-msg {
+  color: gray;
+  font-size: 0.8rem;
+}
+
+.active-filter {
+  background-color: #ffc383;
+}
+
+button {
+  padding: 5px 15px;
+  height: 100%;
+  cursor: pointer;
+  outline: none;
+  border: 1px solid lightgray;
+  background-color: #ffead3;
+}
+
+.todo-date {
+  font-size: 0.8rem;
+  color: gray;
+}
+
+.pinned-label {
+  font-size: 0.8rem;
+  color: red;
+  font-weight: bold;
+}
